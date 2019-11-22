@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuzhi.tool.demo.mapper.CompanyMapper">
+  <resultMap id="BaseResultMap" type="com.yuzhi.tool.demo.domain.entity.Company">
+    <!--@mbg.generated-->
+    <!--@Table t_company-->
+    <id column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_logo" jdbcType="VARCHAR" property="companyLogo" />
+    <result column="company_describe" jdbcType="VARCHAR" property="companyDescribe" />
+    <result column="company_address" jdbcType="VARCHAR" property="companyAddress" />
+    <result column="company_hotline" jdbcType="VARCHAR" property="companyHotline" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    company_id, company_name, company_logo, company_describe, company_address, company_hotline
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_company
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_company
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="company_id" keyProperty="companyId" parameterType="com.yuzhi.tool.demo.domain.entity.Company" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_company (company_name, company_logo, company_describe, 
+      company_address, company_hotline)
+    values (#{companyName,jdbcType=VARCHAR}, #{companyLogo,jdbcType=VARCHAR}, #{companyDescribe,jdbcType=VARCHAR}, 
+      #{companyAddress,jdbcType=VARCHAR}, #{companyHotline,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="company_id" keyProperty="companyId" parameterType="com.yuzhi.tool.demo.domain.entity.Company" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="companyLogo != null">
+        company_logo,
+      </if>
+      <if test="companyDescribe != null">
+        company_describe,
+      </if>
+      <if test="companyAddress != null">
+        company_address,
+      </if>
+      <if test="companyHotline != null">
+        company_hotline,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLogo != null">
+        #{companyLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyDescribe != null">
+        #{companyDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddress != null">
+        #{companyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="companyHotline != null">
+        #{companyHotline,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yuzhi.tool.demo.domain.entity.Company">
+    <!--@mbg.generated-->
+    update t_company
+    <set>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLogo != null">
+        company_logo = #{companyLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyDescribe != null">
+        company_describe = #{companyDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddress != null">
+        company_address = #{companyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="companyHotline != null">
+        company_hotline = #{companyHotline,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yuzhi.tool.demo.domain.entity.Company">
+    <!--@mbg.generated-->
+    update t_company
+    set company_name = #{companyName,jdbcType=VARCHAR},
+      company_logo = #{companyLogo,jdbcType=VARCHAR},
+      company_describe = #{companyDescribe,jdbcType=VARCHAR},
+      company_address = #{companyAddress,jdbcType=VARCHAR},
+      company_hotline = #{companyHotline,jdbcType=VARCHAR}
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </update>
+</mapper>
