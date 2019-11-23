@@ -19,5 +19,6 @@ public class TestController {
 //        测试全局异常
 //        int a =2 / 0;
         return testServie.findCompanyById(companyId);
+
     }
 }
